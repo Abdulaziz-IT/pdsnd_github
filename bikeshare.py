@@ -58,8 +58,7 @@ def load_data(city, month, day):
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
-    df['day_of_week'] = df['Start Time'].dt.weekday_name
-    df['hour'] = df['Start Time'].dt.hour
+    df['day_of_week'] = df['Start Time'].dt.weekday_name    
             
     # filter by month if applicable
     if month != 'all':
@@ -92,6 +91,7 @@ def time_stats(df):
     print("The most common day of week is: ", df['day_of_week'].mode()[0])
 
     # Display the most common start hour
+	df['hour'] = df['Start Time'].dt.hour
     print("The most start hour is: ", df['hour'].mode()[0])
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -184,7 +184,8 @@ def main():
         restart = input('\nWould you like to restart? Type yes to continue...\n')
         if restart.lower() != 'yes':
             break
-
+		
+		print("Thank you for using our program!!")
 
 if __name__ == "__main__":
 	main()
