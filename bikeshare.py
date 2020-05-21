@@ -152,7 +152,7 @@ def user_stats(df):
     print(gender)
     print()
     
-    # Display earliest, most recent, and most common year of birth
+    # Display earliest, most recent and most common year of birth
     print("Earliest year of birth: ", df['Birth Year'].min())
     print("Most recent year of birth: ", df['Birth Year'].max())
     print("Most Common year of birth: ", df['Birth Year'].mode()[0])
